@@ -44,10 +44,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails myUser = User.builder()
                 .username("vikram")
                 .password(passwordEncoder.encode("password")) // Must be encoded or will throw error
-                .roles("STUDENT").build(); // ROLE_STUDENT
+                .roles(ApplicationUserRole.STUDENT.name()).build(); // ROLE_STUDENT
 
 
-        UserDetails adminUser = User.builder().username("admin").password(passwordEncoder.encode("admin")).roles("ADMIN").build();
+        UserDetails adminUser = User.builder().username("admin").password(passwordEncoder.encode("admin")).roles(ApplicationUserRole.ADMIN.name()).build();
 
 
         // save users

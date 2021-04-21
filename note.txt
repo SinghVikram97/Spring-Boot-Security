@@ -39,3 +39,7 @@ Role: STUDENT,
 and withing a role we have a set of permissions a role has
 ie. STUDENT:READ, STUDENT:WRITE, COURSES:READ
 doesn't have COURSE:WRITE
+
+* We can assign multiple ROLES for a USER each ROLE has a set of permissions
+
+Using ENUMS to define roles and permissions
