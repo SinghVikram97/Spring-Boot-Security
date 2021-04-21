@@ -15,3 +15,5 @@ Client                                          Server
 
 Have to send username/password in every req, no logout since user/password sent in every req
 In headers: Key value as Authorization: Basic (username,password in base 64)
+
+Whitelist some urls
