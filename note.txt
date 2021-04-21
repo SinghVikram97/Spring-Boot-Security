@@ -25,5 +25,17 @@ currently username:user and password: random uid stored in an inmemory database
 Username
 Password(must be encoded)
 Role/s (ROLE_NAME)
-Authorities?
+Authorities/Permissions?
 and more...
+
+Roles -> High level view of all the users that we have in the system
+For a specific user we assign a role and then we have permissions/authorities
+
+Role: ADMIN,
+and withing a role we have a set of permissions a role has
+ie. STUDENT:READ, STUDENT:WRITE, COURSES:READ, COURSES:WRITE
+
+Role: STUDENT,
+and withing a role we have a set of permissions a role has
+ie. STUDENT:READ, STUDENT:WRITE, COURSES:READ
+doesn't have COURSE:WRITE
