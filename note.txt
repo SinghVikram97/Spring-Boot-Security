@@ -16,4 +16,14 @@ Client                                          Server
 Have to send username/password in every req, no logout since user/password sent in every req
 In headers: Key value as Authorization: Basic (username,password in base 64)
 
-Whitelist some urls
+Whitelist some urls-> ant matchers
+
+
+Creating Users->
+currently username:user and password: random uid stored in an inmemory database
+
+Username
+Password(must be encoded)
+Role/s (ROLE_NAME)
+Authorities?
+and more...
