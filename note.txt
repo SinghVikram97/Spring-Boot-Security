@@ -1,3 +1,16 @@
 1. Just add spring-boot-security we get a login page without configuring anything
 2. We can get password generated in console
-3. user-user password-in console
+3. default username is user
+4. For logout go to localhost:8080/logout
+
+Basic Auth
+
+Client                                          Server
+
+        ---------------GET REQ----------------->
+        <-------------401 Unauthorized----------
+
+        ---GET REQ | Base 64 username:password-->
+        <----------------200 ok------------------
+
+Have to send username/password in every req
