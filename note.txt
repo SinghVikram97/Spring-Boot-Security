@@ -1,0 +1,3 @@
+1. Just add spring-boot-security we get a login page without configuring anything
+2. We can get password generated in console
+3. user-user password-in console
