@@ -40,15 +40,20 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     // Defines how you retrieve your user from db
     protected UserDetailsService userDetailsService() {
 
+        // Create users
         UserDetails myUser = User.builder()
                 .username("vikram")
                 .password(passwordEncoder.encode("password")) // Must be encoded or will throw error
                 .roles("STUDENT").build(); // ROLE_STUDENT
 
 
-        // creates user
+        UserDetails adminUser = User.builder().username("admin").password(passwordEncoder.encode("admin")).roles("ADMIN").build();
+
+
+        // save users
         return new InMemoryUserDetailsManager(
-                myUser
+                myUser,
+                adminUser
         );
     }
 }
