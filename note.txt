@@ -49,3 +49,5 @@ Role based permission: In our example we protect /api/(anything) from admin role
 We now define 2 Roles: Admin and Admin Trainee
 Admin will have read,write access to management/api/v1/students
 Admin Trainee will only have read access to management/api/v1/students
+
+Spring security not allowing post,put,delete forbidden so we disable csrf for now
