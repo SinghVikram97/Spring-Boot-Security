@@ -45,3 +45,7 @@ doesn't have COURSE:WRITE
 Using ENUMS to define roles and permissions
 
 Role based permission: In our example we protect /api/(anything) from admin role, we allow only student role to access that api
+
+We now define 2 Roles: Admin and Admin Trainee
+Admin will have read,write access to management/api/v1/students
+Admin Trainee will only have read access to management/api/v1/students
