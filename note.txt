@@ -59,3 +59,6 @@ Role/Permission stored internally as SimpleGrantedAuthority, they are same
 Role is stored as ROLE_${name} internally that's the only diff
 
 *Order does matter in defining ant matchers
+
+Permission based authentication using annotations: @PreAuthorize
+Add this annotation to our ApplicationSecurityConfig class to enable above annotation @EnableGlobalMethodSecurity(prePostEnabled = true)
