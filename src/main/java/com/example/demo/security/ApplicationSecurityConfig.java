@@ -3,6 +3,7 @@ package com.example.demo.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -11,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import static com.example.demo.security.ApplicationUserPermission.*;
+import static com.example.demo.security.ApplicationUserRole.*;
 
 @Configuration
 @EnableWebSecurity
@@ -29,7 +33,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/","index","/css/*","/js/*").permitAll()
-                .antMatchers("/api/**").hasRole(ApplicationUserRole.STUDENT.name())
+                .antMatchers("/api/**").hasRole(STUDENT.name())
+                .antMatchers(HttpMethod.DELETE,"/management/api/**").hasAuthority(STUDENT_WRITE.name())
+                .antMatchers(HttpMethod.POST,"/management/api/**").hasAuthority(STUDENT_WRITE.name())
+                .antMatchers(HttpMethod.PUT,"/management/api/**").hasAuthority(STUDENT_WRITE.name())
+                .antMatchers(HttpMethod.GET,"/management/api/**").hasAnyRole(ADMIN.name(), ADMINTRAINEE.name())
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -45,12 +53,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails myUser = User.builder()
                 .username("vikram")
                 .password(passwordEncoder.encode("password")) // Must be encoded or will throw error
-                .roles(ApplicationUserRole.STUDENT.name()).build(); // ROLE_STUDENT
+                .roles(STUDENT.name()).build(); // ROLE_STUDENT
 
 
-        UserDetails adminUser = User.builder().username("admin").password(passwordEncoder.encode("admin")).roles(ApplicationUserRole.ADMIN.name()).build(); // ROLE_ADMIN
+        UserDetails adminUser = User.builder().username("admin").password(passwordEncoder.encode("admin")).roles(ADMIN.name()).build(); // ROLE_ADMIN
 
-        UserDetails adminTraineeUser = User.builder().username("trainee").password(passwordEncoder.encode("trainee")).roles(ApplicationUserRole.ADMINTRAINEE.name()).build(); // ROLE_ADMINTRAINEE
+        UserDetails adminTraineeUser = User.builder().username("trainee").password(passwordEncoder.encode("trainee")).roles(ADMINTRAINEE.name()).build(); // ROLE_ADMINTRAINEE
 
 
         // save users
