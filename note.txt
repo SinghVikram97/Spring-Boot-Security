@@ -54,3 +54,6 @@ Spring security not allowing post,put,delete forbidden so we disable csrf for no
 
 Permission based on Authority/Permissions: hasAuthority()
 2 ways-> using ant matchers or using annotations in the method itself
+
+Role/Permission stored internally as SimpleGrantedAuthority, they are same
+Role is stored as ROLE_${name} internally that's the only diff
