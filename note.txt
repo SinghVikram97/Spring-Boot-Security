@@ -110,3 +110,7 @@ Logout:
 Go to /logout for logging out, we send the JSESSIONID and remember-me cookie as request to clear them from db
 
 Best practice to use post req for logout but since we have disabled csrf we have to GET
+
+In login.html we have the form with fields name as
+username,password,remember-me
+We can change them as .passwordParameter("anything") and then change it in our form
