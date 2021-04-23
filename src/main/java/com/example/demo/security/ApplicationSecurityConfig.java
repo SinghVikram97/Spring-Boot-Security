@@ -33,8 +33,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                //.csrf().disable()
-                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())// setting up csrf token
+                .csrf().disable()
+                //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())// setting up csrf token
                 .and()
                 .authorizeRequests()
                 .antMatchers("/","index","/css/*","/js/*").permitAll()

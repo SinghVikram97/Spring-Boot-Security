@@ -74,4 +74,4 @@ We setup csrf now and make WithHttpOnlyFalse by default it's true
 
 We can now see if we make a GET req we are getting XSRF-TOKEN
 
-Now in POST req if we include X-XSRF-TOKEN:{token-value} in headers we will see POST Req will be successfull now
+Now in POST req if we include X-XSRF-TOKEN:{token-value} in headers we will see POST Req will be successful now
