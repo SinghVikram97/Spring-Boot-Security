@@ -102,3 +102,6 @@ Client                                                        Server
 By default SESSIONID expires after 30mins of inactivity,
 By remember me option we can extend this
 .rememberMe(); //defaults to 2 weeks
+
+We now have a second cookie named as remember-me if we select remember me option
+It contains: username,expiration time, md5 hash of the above 2 values
