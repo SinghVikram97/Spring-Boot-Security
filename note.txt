@@ -118,4 +118,7 @@ We can change them as .passwordParameter("anything") and then change it in our f
 DB Authentication Overview->
 Store users in database instead of inmemory database
 
-ApplicationUserClass
+Add ApplicationUserClass
+Now use this class to create users instead of user builder
+
+Add our UserDetailsService to fetch users from DB
