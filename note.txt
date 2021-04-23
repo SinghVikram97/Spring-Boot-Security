@@ -84,13 +84,17 @@ Form Based Authentication****->
 -Can logout
 
 
-Client                                                  Server
-    -------------Post username/password---------------->
+Client                                                        Server
+        -------------Post username/password---------------->
 
-    <----------Ok after validating credentials----------
+        <----------Ok after validating credentials----------
 
-    <-------------Cookie SESSIONID----------------------
+        <-------------Cookie SESSIONID----------------------
 
-    -----------Any request with SESSIONID--------------->
+        -----------Any request with SESSIONID--------------->
 
-    <------200 OK after validating SESSIONID-------------
+        <------200 OK after validating SESSIONID------------- SESSIONID Stored in a DB on Server
+
+
+    Cookie: JSESSIONID stored under Cookies in Chrome if we delete it we get logged out
+    or you can logout by going to localhost:8080/logout
