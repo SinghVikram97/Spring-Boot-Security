@@ -62,3 +62,12 @@ Role is stored as ROLE_${name} internally that's the only diff
 
 Permission based authentication using annotations: @PreAuthorize
 Add this annotation to our ApplicationSecurityConfig class to enable above annotation @EnableGlobalMethodSecurity(prePostEnabled = true)
+
+CSRF-> Cross Site Request Forgery
+How csrf works?
+When client logins, server sends csrf token along with cookies, now the next time client makes a form req(post|put|delete)
+client submit form with that token, then the server verifies if the token client sent is legit or not.
+
+Our requests failing right now because we haven't set up csrf
+
+We setup csrf now and make WithHttpOnlyFalse by default it's true
