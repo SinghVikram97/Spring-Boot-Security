@@ -122,3 +122,16 @@ Add ApplicationUserClass
 Now use this class to create users instead of user builder
 
 Add our UserDetailsService to fetch users from DB
+
+Add ApplicationUserDao
+Dao-> data access object
+interface for accessing db
+
+Not create a class that implements this ApplicationUserDao (FakeApplicationUserDaoService) which is repository
+
+ApplicationUser-> Class that implements UserDetails which we user to store users in a particular format
+UserDetailsService-> To load users ie. business logic
+ApplicationUserDao(Repository)-> Direct interaction with DB
+FakeApplicationUserDaoService-> Implements the above
+
+@Qualifier("fake") to let it know for autowiring which implementation of interface to inject during autowiring
