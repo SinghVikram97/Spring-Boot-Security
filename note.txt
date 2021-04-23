@@ -105,3 +105,8 @@ By remember me option we can extend this
 
 We now have a second cookie named as remember-me if we select remember me option
 It contains: username,expiration time, md5 hash of the above 2 values
+
+Logout:
+Go to /logout for logging out, we send the JSESSIONID and remember-me cookie as request to clear them from db
+
+Best practice to use post req for logout but since we have disabled csrf we have to GET
