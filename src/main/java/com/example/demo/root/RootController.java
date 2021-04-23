@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class RootController {
-    @GetMapping("")
+    @GetMapping
     public String rootPath(){
         return "Hello Spring Web Security";
     }
