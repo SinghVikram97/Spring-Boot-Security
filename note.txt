@@ -114,3 +114,8 @@ Best practice to use post req for logout but since we have disabled csrf we have
 In login.html we have the form with fields name as
 username,password,remember-me
 We can change them as .passwordParameter("anything") and then change it in our form
+
+DB Authentication Overview->
+Store users in database instead of inmemory database
+
+ApplicationUserClass
