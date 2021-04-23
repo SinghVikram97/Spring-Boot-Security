@@ -135,3 +135,7 @@ ApplicationUserDao(Repository)-> Direct interaction with DB
 FakeApplicationUserDaoService-> Implements the above
 
 @Qualifier("fake") to let it know for autowiring which implementation of interface to inject during autowiring
+
+Make a DaoAuthenticationProvider and set our UserDetailsService and passwordEncoder
+
+Then override configure method and set authenticationProvider as daoAuthenticationProvider
