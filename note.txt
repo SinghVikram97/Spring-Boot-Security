@@ -98,3 +98,7 @@ Client                                                        Server
 
     Cookie: JSESSIONID stored under Cookies in Chrome if we delete it we get logged out
     or you can logout by going to localhost:8080/logout
+
+By default SESSIONID expires after 30mins of inactivity,
+By remember me option we can extend this
+.rememberMe(); //defaults to 2 weeks
