@@ -139,3 +139,35 @@ FakeApplicationUserDaoService-> Implements the above
 Make a DaoAuthenticationProvider and set our UserDetailsService and passwordEncoder
 
 Then override configure method and set authenticationProvider as daoAuthenticationProvider
+
+JWT
+
+                     Android app
+                        |
+                        |
+                        |
+Ios App  --------- Authentication Server ------- 3rd party app
+                        |
+                        |
+                        |
+                      WebApp
+
+
+JSON Web Token
++ Fast, as they are stateless(don't need to store in db)
++ Used across many services
+
+- Compromised secret key
+- No visibility to logged in users
+- Token can be stolen
+
+
+Client                                          Server
+
+        -------Sends credentials----------->
+                                             Validates credentials and creates and signs token
+        <-----------Sends token-------------
+
+        -------Sends token for each req---->        Validates token
+
+
