@@ -171,3 +171,12 @@ Client                                          Server
         -------Sends token for each req---->        Validates token
 
 
+JWT Token consists of
+HEADER-> consists info about type of algorithm used
+BODY(CLAIMS)-> consists of user data
+256-bit-secret
+
+To verify signature we use combination of 3 to verify
+
+Documentation: https://github.com/jwtk/jjwt#jws
+
