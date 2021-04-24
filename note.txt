@@ -189,3 +189,5 @@ Request-> filter1  filter2 ............ n filter-> api
 
 Filters are classes that allow you to perform validation on your requests
 You can either move to next filter or reject the request
+
+Paste token generated on https://jwt.io/#debugger-io to see it's contents
