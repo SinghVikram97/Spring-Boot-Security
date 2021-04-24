@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.crypto.SecretKey;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,23 +25,32 @@ import java.util.stream.Collectors;
 
 // Invoke this filter just once for every single request
 public class JwtTokenVerifierFilter extends OncePerRequestFilter {
+
+
+    private final SecretKey secretKey;
+    private final JwtConfig jwtConfig;
+
+    public JwtTokenVerifierFilter(SecretKey secretKey, JwtConfig jwtConfig) {
+        this.secretKey = secretKey;
+        this.jwtConfig = jwtConfig;
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         // Get token from header
-        String authorizationHeader=request.getHeader("Authorization");
+        String authorizationHeader=request.getHeader(jwtConfig.getAuthorizationHeader());
 
         // Reject request
-        if(Strings.isNullOrEmpty(authorizationHeader) || !authorizationHeader.startsWith("Bearer ")){
+        if(Strings.isNullOrEmpty(authorizationHeader) || !authorizationHeader.startsWith(jwtConfig.getTokenPrefix())){
             filterChain.doFilter(request,response);
             return;
         }
 
         try{
-            String token=authorizationHeader.replace("Bearer ","");
-            String secretKey="securesecuresecuresecuresecuresecuresecuresecuresecuresecuresecure";
+            String token=authorizationHeader.replace(jwtConfig.getTokenPrefix(),"");
             Jws<Claims> claimsJws = Jwts.parserBuilder()
-                    .setSigningKey(Keys.hmacShaKeyFor(secretKey.getBytes()))
+                    .setSigningKey(secretKey)
                     .build()
                     .parseClaimsJws(token); // because we user compact() while generating jwt see documentation
 
