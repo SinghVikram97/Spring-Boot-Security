@@ -191,3 +191,5 @@ Filters are classes that allow you to perform validation on your requests
 You can either move to next filter or reject the request
 
 Paste token generated on https://jwt.io/#debugger-io to see it's contents
+
+We now add another filter JwtTokenVerifier whose job is to verify whether Jwt token received is valid or not
