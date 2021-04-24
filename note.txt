@@ -180,3 +180,12 @@ To verify signature we use combination of 3 to verify
 
 Documentation: https://github.com/jwtk/jjwt#jws
 
+Request filters
+
+Request-> filter1  filter2 ............ n filter-> api
+            |
+            |
+      JwtUsernameAndPasswordAuthenticationFilter
+
+Filters are classes that allow you to perform validation on your requests
+You can either move to next filter or reject the request
